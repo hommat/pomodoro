@@ -1,13 +1,14 @@
 import React from 'react';
 
 import Phase from './Phase';
+import { SPhaseList } from './PhaseList.style';
 
 const PhaseList: React.FC = () => (
-  <div>
+  <SPhaseList>
     <Phase name="Pomodoro" phase="pomodoro" />
     <Phase name="Short break" phase="break-short" />
     <Phase name="Long break" phase="break-long" />
-  </div>
+  </SPhaseList>
 );
 
 export default PhaseList;

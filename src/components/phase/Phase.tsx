@@ -3,24 +3,25 @@ import React from 'react';
 import { Phase as PhaseType } from '../../context/phase';
 import { usePhase } from '../../hooks';
 
+import { SPhase } from './Phase.style';
+
 type Props = {
   name: string;
   phase: PhaseType;
 };
 
 const Phase: React.FC<Props> = ({ name, phase }) => {
-  const { setPhase } = usePhase();
-  const handleClick = () => setPhase(phase);
+  const phaseContext = usePhase();
+  const handleClick = () => phaseContext.setPhase(phase);
 
   return (
-    <button
+    <SPhase
+      active={phase === phaseContext.phase}
       onClick={handleClick}
-      style={{ background: 'pink', border: '2px solid black' }}
       type="button"
     >
-      <h2>{name}</h2>
-      <p>{phase}</p>
-    </button>
+      {name}
+    </SPhase>
   );
 };
 

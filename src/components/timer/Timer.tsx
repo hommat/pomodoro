@@ -6,20 +6,16 @@ import TimerText from './TimerText';
 import TimerButtons from './TimerButtons';
 
 const Timer: React.FC = () => {
-  const settings = useSettings();
-  const phase = usePhase();
+  const { settings } = useSettings();
+  const { phase } = usePhase();
   const interval = useRef<null | number>(null);
   const seconds = useRef<number>(0);
   const minutes = useRef<number>(0);
 
   const getPhaseMinutes = (): number => {
-    const {
-      pomodoroMinutes,
-      shortBreakMinutes,
-      longBreakMinutes
-    } = settings.state;
+    const { pomodoroMinutes, shortBreakMinutes, longBreakMinutes } = settings;
 
-    switch (phase.phase) {
+    switch (phase) {
       case 'break-short':
         return shortBreakMinutes;
       case 'break-long':
@@ -49,7 +45,11 @@ const Timer: React.FC = () => {
 
   useEffect(() => {
     resetTimer();
-  }, [phase.phase]);
+  }, [phase]);
+
+  useEffect(() => {
+    if (!state.counting) resetTimer();
+  }, [settings]);
 
   useEffect(() => {
     if (state.counting) {

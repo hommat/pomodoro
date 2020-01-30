@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { STimerButton, STimerButtons } from './TimerButtons.style';
+
 type Props = {
   onStartClick: VoidFunction;
   onStopClick: VoidFunction;
@@ -11,17 +13,17 @@ const TimerButtons: React.FC<Props> = ({
   onStopClick,
   onResetClick
 }) => (
-  <div>
-    <button type="button" onClick={onStartClick}>
+  <STimerButtons>
+    <STimerButton type="button" onClick={onStartClick}>
       Start
-    </button>
-    <button type="button" onClick={onStopClick}>
+    </STimerButton>
+    <STimerButton type="button" onClick={onStopClick}>
       Stop
-    </button>
-    <button type="button" onClick={onResetClick}>
+    </STimerButton>
+    <STimerButton type="button" onClick={onResetClick}>
       Reset
-    </button>
-  </div>
+    </STimerButton>
+  </STimerButtons>
 );
 
 export default TimerButtons;
