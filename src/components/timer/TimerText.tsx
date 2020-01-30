@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getClockTime } from '../../utils/time';
+
 import { STimerText } from './TimerText.style';
 
 type Props = {
@@ -7,17 +9,8 @@ type Props = {
   seconds: number;
 };
 
-const TimerText: React.FC<Props> = ({ minutes, seconds }) => {
-  const makeNumberTwoDigit = (num: number): string => {
-    if (num > 10) return num.toString();
-    return `0${num}`;
-  };
-
-  return (
-    <STimerText>
-      {makeNumberTwoDigit(minutes)}:{makeNumberTwoDigit(seconds)}
-    </STimerText>
-  );
-};
+const TimerText: React.FC<Props> = ({ minutes, seconds }) => (
+  <STimerText>{getClockTime(minutes, seconds)}</STimerText>
+);
 
 export default TimerText;

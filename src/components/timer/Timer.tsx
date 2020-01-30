@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
 import { useSettings, usePhase, useObjectState } from '../../hooks';
+import { getClockTime } from '../../utils/time';
 
 import TimerText from './TimerText';
 import TimerButtons from './TimerButtons';
@@ -32,8 +33,11 @@ const Timer: React.FC = () => {
     counting: false
   });
 
-  const clearTimer = () => {
-    if (interval.current) clearInterval(interval.current);
+  const clearTimerAndTitle = () => {
+    if (interval.current) {
+      clearInterval(interval.current);
+      document.title = 'Pomodoro';
+    }
   };
 
   const resetTimer = () => {
@@ -58,15 +62,21 @@ const Timer: React.FC = () => {
         else if (minutes.current > 0) seconds.current = 59;
 
         if (seconds.current === 59 && minutes.current > 0) minutes.current -= 1;
-        if (minutes.current === 0 && seconds.current === 0) clearTimer();
+        if (minutes.current === 0 && seconds.current === 0) {
+          clearTimerAndTitle();
+        }
 
         setState({ seconds: seconds.current, minutes: minutes.current });
+        document.title = `(${getClockTime(
+          minutes.current,
+          seconds.current
+        )}) Pomodoro`;
       };
 
       interval.current = setInterval(intervalFunction, 1000) as any;
-    } else clearTimer();
+    } else clearTimerAndTitle();
 
-    return clearTimer;
+    return clearTimerAndTitle;
   }, [state.counting]);
 
   const handleStartClick = () => setState({ counting: true });
