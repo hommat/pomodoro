@@ -1,5 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: {
     main: './src/index.tsx'
@@ -17,18 +15,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: ['babel-loader', 'awesome-typescript-loader']
-      },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'img'
-          }
-        }
       }
     ]
-  },
-  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })]
+  }
 };
