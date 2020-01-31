@@ -63,6 +63,7 @@ const Timer: React.FC = () => {
 
         if (seconds.current === 59 && minutes.current > 0) minutes.current -= 1;
         if (minutes.current === 0 && seconds.current === 0) {
+          new Notification('Pomodoro', { body: 'Time is up' });
           clearTimerAndTitle();
         }
 

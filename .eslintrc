@@ -9,6 +9,7 @@
     "import/prefer-default-export": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/no-cycle": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "no-new": "off"
   }
 }
