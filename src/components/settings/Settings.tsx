@@ -26,7 +26,10 @@ type Errors = {
   longBreakMinutes: boolean;
 };
 
-const canNumberBeMinute = (n: number) => Number.isInteger(n) && n > 0;
+const canNumberBeMinute = (n: string | number) => {
+  const parsed = typeof n === 'string' ? parseFloat(n) : n;
+  return Number.isInteger(parsed) && parsed > 0;
+};
 
 const initialErrors: Errors = {
   pomodoroMinutes: false,
