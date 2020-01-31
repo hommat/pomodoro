@@ -1,5 +1,5 @@
 function prepareNumberToClockTime(num: number): string {
-  return num > 10 ? num.toString() : `0${num}`;
+  return num >= 10 ? num.toString() : `0${num}`;
 }
 
 export function getClockTime(minutes: number, seconds: number): string {

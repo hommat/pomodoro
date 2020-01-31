@@ -60,18 +60,18 @@ const Timer: React.FC = () => {
       const intervalFunction = () => {
         if (seconds.current > 0) seconds.current -= 1;
         else if (minutes.current > 0) seconds.current = 59;
-
         if (seconds.current === 59 && minutes.current > 0) minutes.current -= 1;
-        if (minutes.current === 0 && seconds.current === 0) {
-          new Notification('Pomodoro', { body: 'Time is up' });
-          clearTimerAndTitle();
-        }
 
         setState({ seconds: seconds.current, minutes: minutes.current });
         document.title = `(${getClockTime(
           minutes.current,
           seconds.current
         )}) Pomodoro`;
+
+        if (minutes.current === 0 && seconds.current === 0) {
+          new Notification('Pomodoro', { body: 'Time is up' });
+          clearTimerAndTitle();
+        }
       };
 
       interval.current = setInterval(intervalFunction, 1000) as any;
