@@ -11,7 +11,7 @@ export const buttonStyles = css`
   background: ${(p: ThemeProps) => p.theme.color.primary};
   color: rgba(255, 255, 255, 0.87);
   outline: none;
-  transition: 0.4s;
+  transition: ${(p: ThemeProps) => p.theme.transition.default};
 
   &:focus {
     background: ${(p: ThemeProps) => p.theme.color.primaryDark};

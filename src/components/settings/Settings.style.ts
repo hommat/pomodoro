@@ -23,7 +23,7 @@ export const SOverlay = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.87);
+  background: ${(p) => p.theme.color.textDark};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ export const SInput = styled.input<InputProps>`
   border-width: 1px;
   border-style: solid;
   border-color: ${(p) => (p.error ? 'red' : '#a2a2a2')};
-  transition: 0.4s;
+  transition: ${(p) => p.theme.transition.default};
   outline: none;
 
   &:hover {
