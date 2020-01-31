@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { useSettings, useObjectState } from '../../hooks';
+import { initialSettings } from '../../context/settings';
 
 import {
   SOverlay,
@@ -34,7 +35,7 @@ const initialErrors: Errors = {
 };
 
 const Settings: React.FC<Props> = ({ onClose }) => {
-  const { settings, setSettings, resetSettings } = useSettings();
+  const { settings, setSettings } = useSettings();
   const [state, setState] = useObjectState(settings);
   const [errors, setErrors] = useObjectState<Errors>(initialErrors);
 
@@ -59,8 +60,7 @@ const Settings: React.FC<Props> = ({ onClose }) => {
   };
 
   const handleResetClick = () => {
-    resetSettings();
-    onClose();
+    setState(initialSettings);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
