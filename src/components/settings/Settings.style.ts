@@ -1,6 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
 
-import { buttonStyles } from '../../styles';
+import { styled } from '../../styles/theme';
+import { buttonStyles } from '../../styles/shared';
+
+type InputProps = {
+  error: boolean;
+};
 
 const entryTransiton = keyframes`
   from {
@@ -50,23 +55,23 @@ export const SLabel = styled.label`
   display: block;
 `;
 
-export const SInput = styled.input`
+export const SInput = styled.input<InputProps>`
   width: 100%;
   padding: 0.3em;
   font-size: 1em;
   border-radius: 2px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${(p: { error: boolean }) => (p.error ? 'red' : '#1e6262')};
+  border-color: ${(p) => (p.error ? 'red' : '#a2a2a2')};
   transition: 0.4s;
   outline: none;
 
   &:hover {
-    border-color: ${(p: { error: boolean }) => (p.error ? 'red' : ' #2d767f')};
+    border-color: ${(p) => (p.error ? 'red' : p.theme.color.primary)};
   }
 
   &:focus {
-    border-color: ${(p: { error: boolean }) => (p.error ? 'red' : '#0e4546')};
+    border-color: ${(p) => (p.error ? 'red' : p.theme.color.primaryDark)};
   }
 `;
 

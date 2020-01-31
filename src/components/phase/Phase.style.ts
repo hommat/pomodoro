@@ -1,8 +1,13 @@
-import styled from 'styled-components';
+import { styled } from '../../styles/theme';
+import { buttonStyles } from '../../styles/shared';
 
-import { buttonStyles } from '../../styles';
+type Props = {
+  active: boolean;
+};
 
-export const SPhase = styled.button`
+export const SPhase = styled.button<Props>`
   ${buttonStyles}
-  background: ${(p: { active: boolean }) => (p.active ? '#0e4546' : '#1e6262')};
+  background: ${(p) => {
+    return p.active ? p.theme.color.primaryDark : p.theme.color.primary;
+  }};
 `;

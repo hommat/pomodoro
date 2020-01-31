@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { ThemeProps } from './theme';
 
 export const buttonStyles = css`
   border: none;
@@ -7,12 +8,12 @@ export const buttonStyles = css`
   font-weight: 600;
   cursor: pointer;
   border-radius: 2px;
-  background: #1e6262;
+  background: ${(p: ThemeProps) => p.theme.color.primary};
   color: rgba(255, 255, 255, 0.87);
   outline: none;
   transition: 0.4s;
 
   &:focus {
-    background: #0e4546;
+    background: ${(p: ThemeProps) => p.theme.color.primaryDark};
   }
 `;

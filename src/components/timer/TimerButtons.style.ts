@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
-import { buttonStyles } from '../../styles';
+import { styled } from '../../styles/theme';
+import { buttonStyles } from '../../styles/shared';
 
 export const STimerButtons = styled.div`
   display: flex;
@@ -10,7 +9,7 @@ export const STimerButtons = styled.div`
 
 export const STimerButton = styled.button`
   ${buttonStyles}
-  color: rgba(255, 255, 255, 0.87);
+  color: ${(p) => p.theme.color.textLight};
   margin-right: 1em;
 
   &:last-child {

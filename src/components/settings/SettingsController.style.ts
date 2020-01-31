@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
-import { buttonStyles } from '../../styles';
+import { styled } from '../../styles/theme';
+import { buttonStyles } from '../../styles/shared';
 
 export const SSettingsController = styled.button`
   ${buttonStyles}

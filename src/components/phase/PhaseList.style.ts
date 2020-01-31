@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '../../styles/theme';
 
 export const SPhaseList = styled.div`
   display: grid;

@@ -8,6 +8,7 @@
     "space-before-function-paren": "off",
     "import/prefer-default-export": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    "arrow-body-style": "off"
   }
 }
